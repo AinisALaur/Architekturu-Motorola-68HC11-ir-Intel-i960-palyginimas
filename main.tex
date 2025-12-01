@@ -295,4 +295,58 @@ Page: 206
 \url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
 
 Page: 20
+
+\section*{What are the I/O possibilities of each architecture?}
+\subsection*{Motorola 68HC11}
+1) Timer System - captures input, displays output, used for the pulse accumulator
+
+2) Pulse Accumulator - Counts external pulses or measures events
+
+3) Analog-to-Digital Converter (A/D) - 8 channels, 8-bit resolution
+
+4) SCI
+
+5) SPI
+
+6) Address/Data Bus I/O - outputs address/data
+
+
+\subsection*{Intel i960}
+1) Memory-mapped I/O - All peripherals are accessed as memory addresses
+
+2) Local Bus (L-bus) - 32-bit multiplexed bus used to connect memory + I/O devices
+
+3) PCI Bus I/O - Acts as a PCI device; supports PCI-to-PCI bridging
+
+4) Address Translation Unit (ATU) - Maps PCI address space to local memory
+
+5) DMA Controller - Performs high-speed peripheral-to-memory transfers with chaining, alignment
+
+6) Interrupt Controller (ICU) - Handles up to 240 external interrupt sources
+
+7) Interrupt Inputs (KB) - Flexible interrupt structure with on-chip or external interrupt controller options
+
+8) Timer Unit - Two memory-mapped timer registers, each producing interrupts
+
+10) I/O APIC Bus Interface - Multiprocessor I/O interrupt bus interface
+
+11) Boundary Scan / JTAG - I/O test access
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+Pages: 26 - 29
+
+\textbf{For Intel i960:}
+
+\url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
+
+Pages: 90, 91, 187 - 204
+
+\url{https://www.alldatasheet.com/datasheet-pdf/download/93622/INTEL/I960.html}
+
+Pages: 8, 9, 12
+
 \end{document}
