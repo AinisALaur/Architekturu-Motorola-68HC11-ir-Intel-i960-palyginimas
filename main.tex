@@ -62,4 +62,11 @@ Architektūroje yra 8 registrai (A, B, D, X, Y, SP, PC, CCR) ir visi registrai y
 \subsection*{Intel i960}
 Architektūra sudaryta iš 32 registrų (16 globalių ir 16 lokalių bendros paskirties) ir visi registrai yra 32 bitų pločio. Specialios paskirties registrai yra: PC / IP (instrukcijų rodyklė (angl. "Instruction Pointer")), AC (aritmetinių sąlygų kodo registras (angl. "Arithmetic Condition Codes")), MMRs (valdo pertraukimus, skaitliukus, programos klaidas).
 
+\section*{Ar požymių bitai buvo naudojami šiose architektūrose? Kokie požymiai buvo naudojami?}
+\subsection*{Motorola 68HC11}
+Taip ši architektūra naudoja požymių bitus - CCR registre yra 5 požymių, 2 pertraukimų ir 1 STOP bitas. Požymių bitai: C (perkėlimo (angl. "Carry \ Borrow")), V (perpildymas (angl. "Overflow")), Z (nulio), N (neigiamo), H (pusinio perkėlimo). Pertraukimo bitai I ir X ("Interrupt mask bits"). STOP bitas S - nutraukia programos veikimą.
+
+\subsection*{Intel i960}
+Taip ši architektūra taip pat naudoja požymių bitus. Požymių bitai: C (perkėlimo (angl. "Carry \ Borrow")), V (perpildymas (angl. "Overflow")), Z (nulio), N (neigiamo), T (sekimo įgalinimas (angl. "Trace-enable"), skirtas programos derinimui (ang."Debugging")). Taip pat yra klaidų kodų bitai: dalybą iš nulio, negalima prieiga, segmento klaida, lygiavimo klaida.
+
 \end{document}
