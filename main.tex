@@ -43,10 +43,10 @@
 
 \section*{Kokio tipo architektūrą turėjo abu kompiuteriai}
 \subsection*{Motorola 68HC11}
-Ši architektūra turėjo 8-bitų akumuliatorių, steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), programos skaitliuką, sąlyginius ir indeksų registrus, kurie palaiko 72 instrukcijas ir 19 išplėstinių operacijos kodų (angl. "opcodes"), visos operacijos vykdomos tarp registrų ar akumuliatoriuje, o ne atmintyje, tad šio procesoriaus architektūra yra akumuliatorinė/registrinė.
+Ši architektūra turėjo 8-bitų akumuliatorių, steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), programos skaitliuką, registrus, kurie palaiko 72 instrukcijas ir 19 išplėstinių operacijos kodų (angl. "opcodes"), visos operacijos vykdomos tarp registrų ar akumuliatoriuje, o ne atmintyje, tad šio procesoriaus architektūra yra akumuliatorinė/registrinė.
 
 \subsection*{Intel i960}
-Ši architektūra yra sudaryta iš 32 registrų (16 globalių ir 16 lokalių), turi steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), neturi akumuliatoriaus, naudoja įkelti, saugoti instrukcijas (angl. "load/store instructions"), visos operacijos vykdomos tarp registrų, o ne atmintyje, tad šio procesoriaus architektūra yra registrinė, kuri naudoja įkelti, saugoti instrukcijas.
+Ši architektūra yra sudaryta registrų, turi steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), neturi akumuliatoriaus, naudoja įkelti, saugoti instrukcijas (angl. "load/store instructions"), visos operacijos vykdomos tarp registrų, o ne atmintyje, tad šio procesoriaus architektūra yra registrinė, kuri naudoja įkelti, saugoti instrukcijas.
 
 \section*{Ar tai buvo beadresinės (stekinės), vieno adreso, dviejų adresų, trijų adresų ar keturios adresų mašinos?}
 \subsection*{Motorola 68HC11}
@@ -54,5 +54,12 @@
 
 \subsection*{Intel i960}
 Ši architektūra naudoja 2 - 3 adresus, priklausomai nuo operacijos: loginės operacijos naudoja 3 adresus, o operacijos kaip įkelti, saugoti (angl. "load, store") naudoja tik 2 adresus, vieno adreso operacijų architektūra neturi. Architektūra turi steką, bet jis nėra naudojamas operacijoms, citata iš "I960 INTEL Datasheet": "it does not consume/produce operands on a stack."
+
+\section*{Kokie buvo registrai abiejose architektūrose? Kokie, tai registrai? Kiek registrų? Kokie registrų duomenų pločiai? Kokia buvo specifinė registrų paskirtis?}
+\subsection*{Motorola 68HC11}
+Architektūroje yra 8 registrai (A, B, D, X, Y, SP, PC, CCR) ir visi registrai yra globalūs. Registrai A, B ir CCR yra 8 bitų pločio, o visi kiti yra 16 bitų pločio. Registrai SP ir CCR yra specialios paskirties - SP yra steko rodyklės (angl. "stack pointer") registras, CCR yra sąlygos kodo registras (angl. "Condition Code Register"), o PC registras yra programos skaitliukas (angl. "Program Counter"). Registrai X ir Y yra skirti indeksavimui, bet galima naudoti, kaip bendros paskirties registrus, likę registrai (A, B, D) - yra bendros paskirties registrai.
+
+\subsection*{Intel i960}
+Architektūra sudaryta iš 32 registrų (16 globalių ir 16 lokalių bendros paskirties) ir visi registrai yra 32 bitų pločio. Specialios paskirties registrai yra: PC / IP (instrukcijų rodyklė (angl. "Instruction Pointer")), AC (aritmetinių sąlygų kodo registras (angl. "Arithmetic Condition Codes")), MMRs (valdo pertraukimus, skaitliukus, programos klaidas).
 
 \end{document}
