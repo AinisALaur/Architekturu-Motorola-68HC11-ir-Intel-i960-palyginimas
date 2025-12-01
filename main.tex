@@ -1,6 +1,5 @@
 \documentclass[
-    % english, % Klasei padavus parametrą 'english', darbas bus anglų kalba.
-    % signatureplaces % prideda parašų vietas tituliniame puslapyje
+    english
 ]{VUMIFPSbakalaurinis}
 \usepackage{float}
 \usepackage{wrapfig2}
@@ -18,11 +17,11 @@
 \usepackage{subcaption}
 \usepackage{biblatex}
 
-\university{Vilniaus universitetas}
-\faculty{Matematikos ir informatikos fakultetas}
-\department{Informatikos bakalauro studijų programa}
-\title{Dviejų pasirinktų architektūrų palyginimas}
-\papertype{Motorola 68HC11 ir Intel i960}
+\university{Vilnius university}
+\faculty{Faculty of Mathematics and Informatics}
+\department{Informatics bachelor's degree studies}
+\title{Two chosen computer architecture comparison}
+\papertype{Motorola 68HC11 vs. Intel i960}
 
 \author{Ainis Augustas Laurinavičius}
 \supervisor{prof. dr. Saulius Gražulis}
@@ -34,39 +33,106 @@
 \maketitle
 
 \newpage
-\section*{Elementinė procesoriaus/kompiuterio bazė, fizinės įrangos savybės}
+\section*{Base of the processor/computer, physical characteristics}
 \subsection*{Motorola 68HC11}
-Šios architektūros bazė yra padaryta iš CMOS MOSFET tranzistorių, integrinio grandyno (IC), kuris yra labai didelio integracijos masto (VLSI). Šis procesorius yra monokristalinis šiuolaikinis procesorius. Procesorius yra apie 20mm ilgio ir 20mm pločio, svoris nenurodytas. Vykdymo metu procesorius vartoja 5V, 2MHz dažniu, o stipris svyruoja tarp 5 - 15mA. Padidinus veikimo dažnį iki 3 - 4MHz, stipris svyruoja nuo 8 iki 20mA. Procesorius STOP režime (low-power) naudoja mažiau - apie 10$\mu$A, o miego režime (WAIT) stipris tiksliai nenurodytas, procesoriaus galia vykdymo metu yra tarp 50 - 100mW.
+The base of this architecture is made from CMOS MOSFET transistors, an integrated circuit (IC) with a very large scale of integration (VLSI). This processor is a monocrystalline modern processor. The processor is about 20 mm in length and 20 mm in width; its weight is not specified. During operation, the processor uses 5 V at a frequency of 2 MHz, and the current ranges between 5 and 15 mA. When the operating frequency is increased to 3–4 MHz, the current ranges from 8 to 20 mA. In STOP mode (low-power), the processor uses less — about 10 $\mu$A, and in sleep mode (WAIT), the current is not precisely specified. The processor’s power consumption during operation is between 50 and 100 mW.
 
 \subsection*{Intel i960}
-Šios architektūros bazė yra sudaryta iš CMOS tranzistorių, integrinio grandyno, kuris yra labai didelio integracijos masto (VLSI). Šis procesorius yra monokristalinis šiuolaikinis procesorius. Procesorius yra apie 35mm ilgio ir 35mm pločio, sveriantis apie 50g.Vykdymo metu procesorius vartoja 3.3V, 25MHz dažniu, o stipris apie 150mA. Padidinus veikimo dažnį iki 33MHz, stipris padidėja iki 200mA. Procesorius STOP režime (angl. "low-power") naudoja tik 10mA - 20mA, o miego režime (angl. "WAIT") 37mA - 75mA, procesoriaus galia vykdymo metu yra apie 0.033W.
+The base of this architecture is composed of CMOS transistors and an integrated circuit with a very large scale of integration (VLSI). This processor is a monocrystalline modern processor. The processor is about 35 mm in length and 35 mm in width, weighing about 50 g. During operation, the processor uses 3.3 V at a 25 MHz frequency, with a current of about 150 mA. When the operating frequency is increased to 33 MHz, the current increases to 200 mA. In STOP mode (low-power), the processor uses only 10–20 mA, and in sleep mode (WAIT) it uses 37–75 mA. The processor’s power consumption during operation is about 0.033 W.
 
-\section*{Kokio tipo architektūrą turėjo abu kompiuteriai}
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://grokipedia.com/page/Motorola_68HC11}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+Pages: 73 - 77
+
+\textbf{For Intel i960:}
+
+\url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
+
+Pages: 182 - 184
+
+\url{https://datasheets.chipdb.org/Intel/80960/manuals/48527606.PDF#:~:text=In%20the%20add%20and%20subtract%20with%20carry,an%20overflow%20condition%20resulted%20from%20the%20operation}
+
+Pages: 139
+
+\section*{What type of architecture did the computer use?}
 \subsection*{Motorola 68HC11}
-Ši architektūra turėjo 8-bitų akumuliatorių, steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), programos skaitliuką, registrus, kurie palaiko 72 instrukcijas ir 19 išplėstinių operacijos kodų (angl. "opcodes"), visos operacijos vykdomos tarp registrų ar akumuliatoriuje, o ne atmintyje, tad šio procesoriaus architektūra yra akumuliatorinė/registrinė.
+This architecture had an 8-bit accumulator, a stack pointer, which is not used for operations, a program counter, and registers that support 72 instructions and 19 extended opcodes. All operations are performed between registers or in the accumulator rather than in memory, so this processor’s architecture is accumulator/register based.
 
 \subsection*{Intel i960}
-Ši architektūra yra sudaryta registrų, turi steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), neturi akumuliatoriaus, naudoja įkelti, saugoti instrukcijas (angl. "load/store instructions"), visos operacijos vykdomos tarp registrų, o ne atmintyje, tad šio procesoriaus architektūra yra registrinė, kuri naudoja įkelti, saugoti instrukcijas.
+This architecture is made of registers, a stack pointer, which is not used for operations. It does not have an accumulator and uses load/store instructions. All operations are performed between registers rather than in memory, so this processor’s architecture is register-based, which uses load/store instructions.
 
-\section*{Ar tai buvo beadresinės (stekinės), vieno adreso, dviejų adresų, trijų adresų ar keturios adresų mašinos?}
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://grokipedia.com/page/Motorola_68HC11}
+
+\textbf{For Intel i960:}
+
+\url{https://grokipedia.com/page/Intel_i960}
+
+\section*{Was it a zero-address (stack-based), one-address, two-address, three-address, or four-address machine?}
 \subsection*{Motorola 68HC11}
-Ši architektūra yra 1 - 2 adresų mašina, kurios adresų kiekis priklauso nuo operacijos, o daugiau kaip 2 adresų nenaudoja. Architektūra turi steką, bet jis nėra naudojamas operacijoms ("The M68HC11 CPU automatically supports a program stack… used for subroutines, interrupts, and temporary storage." citata iš "Motorola 68HC11 reference manual").
+This architecture is a 1–2-address machine, where the number of addresses depends on the operation, and it never uses more than two. The architecture has a stack, but it is not used for operations (‘The M68HC11 CPU automatically supports a program stack… used for subroutines, interrupts, and temporary storage.’ — a quote from the Motorola 68HC11 Reference Manual).
 
 \subsection*{Intel i960}
-Ši architektūra naudoja 2 - 3 adresus, priklausomai nuo operacijos: loginės operacijos naudoja 3 adresus, o operacijos kaip įkelti, saugoti (angl. "load, store") naudoja tik 2 adresus, vieno adreso operacijų architektūra neturi. Architektūra turi steką, bet jis nėra naudojamas operacijoms, citata iš "I960 INTEL Datasheet": "it does not consume/produce operands on a stack."
+This architecture uses mostly 2 addresses. There is no one-address or three-address operation within this architecture. The architecture has a stack, but it is not used for operations (quote from the i960 Intel Datasheet: ‘it does not consume/produce operands on a stack’).
 
-\section*{Kokie buvo registrai abiejose architektūrose? Kokie, tai registrai? Kiek registrų? Kokie registrų duomenų pločiai? Kokia buvo specifinė registrų paskirtis?}
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+Page: 214
+
+\textbf{For Intel i960:}
+
+\url{https://www.alldatasheet.com/datasheet-pdf/download/93622/INTEL/I960.html}
+
+Pages: 12 - 13
+
+\section*{What registers existed in both architectures? What kind of registers were they? How many registers were there? What were the data widths of the registers? What was the specific purpose of each register?}
 \subsection*{Motorola 68HC11}
-Architektūroje yra 8 registrai (A, B, D, X, Y, SP, PC, CCR) ir visi registrai yra globalūs. Registrai A, B ir CCR yra 8 bitų pločio, o visi kiti yra 16 bitų pločio. Registrai SP ir CCR yra specialios paskirties - SP yra steko rodyklės (angl. "stack pointer") registras, CCR yra sąlygos kodo registras (angl. "Condition Code Register"), o PC registras yra programos skaitliukas (angl. "Program Counter"). Registrai X ir Y yra skirti indeksavimui, bet galima naudoti, kaip bendros paskirties registrus, likę registrai (A, B, D) - yra bendros paskirties registrai.
+The architecture has 8 registers (A, B, D, X, Y, SP, PC, CCR), and all registers are global. Registers A, B, and CCR are 8 bits wide, while the others are 16 bits wide. Registers SP and CCR have special purposes—SP is the stack pointer register, and CCR is the Condition Code Register. The PC register is the Program Counter. Registers X and Y are used for indexing but can also serve as general-purpose registers, while the remaining registers (A, B, D) are general-purpose registers.
 
 \subsection*{Intel i960}
-Architektūra sudaryta iš 32 registrų (16 globalių ir 16 lokalių bendros paskirties) ir visi registrai yra 32 bitų pločio. Specialios paskirties registrai yra: PC / IP (instrukcijų rodyklė (angl. "Instruction Pointer")), AC (aritmetinių sąlygų kodo registras (angl. "Arithmetic Condition Codes")), MMRs (valdo pertraukimus, skaitliukus, programos klaidas).
+The architecture consists of 32 registers (16 global and 16 local general-purpose), and all registers are 32 bits wide. The special-purpose registers are: PC/IP (Instruction Pointer), AC (Arithmetic Condition Codes), and MMRs (used to control interrupts, counters, and program errors).
 
-\section*{Ar požymių bitai buvo naudojami šiose architektūrose? Kokie požymiai buvo naudojami?}
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+Pages: 199 - 201
+
+\textbf{For Intel i960:}
+
+\url{https://www.alldatasheet.com/datasheet-pdf/download/93622/INTEL/I960.html}
+
+Pages: 1, 4 - 6
+
+\section*{Were flag bits used in these architectures? Which flags were used?}
 \subsection*{Motorola 68HC11}
-Taip ši architektūra naudoja požymių bitus - CCR registre yra 5 požymių, 2 pertraukimų ir 1 STOP bitas. Požymių bitai: C (perkėlimo (angl. "Carry \ Borrow")), V (perpildymas (angl. "Overflow")), Z (nulio), N (neigiamo), H (pusinio perkėlimo). Pertraukimo bitai I ir X ("Interrupt mask bits"). STOP bitas S - nutraukia programos veikimą.
+Yes, this architecture uses flag bits—the CCR register contains 5 flag bits. The flag bits are: C (Carry/Borrow), V (Overflow), Z (Zero), N (Negative), and H (Half-carry).
 
 \subsection*{Intel i960}
-Taip ši architektūra taip pat naudoja požymių bitus. Požymių bitai: C (perkėlimo (angl. "Carry \ Borrow")), V (perpildymas (angl. "Overflow")), Z (nulio), N (neigiamo), T (sekimo įgalinimas (angl. "Trace-enable"), skirtas programos derinimui (ang."Debugging")). Taip pat yra klaidų kodų bitai: dalybą iš nulio, negalima prieiga, segmento klaida, lygiavimo klaida.
+Yes, this architecture also uses flag bits. The flag bits are: C (Carry/Borrow), V (Two’s complement overflow indicator), Z (Zero indicator), N (Negative indicator), and T (Trace-enable, used for program debugging).
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+Page: 489
+
+\textbf{For Intel i960:}
+
+\url{https://www.alldatasheet.com/datasheet-pdf/download/93622/INTEL/I960.html}
+
+Pages: 12, 13, 63
 
 \end{document}

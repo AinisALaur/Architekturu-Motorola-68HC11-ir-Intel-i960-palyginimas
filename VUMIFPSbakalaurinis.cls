@@ -78,7 +78,6 @@
 \newcommand{\papertype}[1]{\def\@papertype{#1}}
 \newcommand{\department}[1]{\def\@department{#1}}
 \newcommand{\supervisor}[1]{\def\@supervisor{#1}}
-\newcommand{\reviewer}[1]{\def\@reviewer{#1}}
 \newcommand{\titleineng}[1]{\def\@titleineng{#1}}
 \newcommand{\secondauthor}[1]{\def\@secondauthor{#1}}
 
@@ -196,8 +195,6 @@
     {Tituliniame puslapyje nenurodytas darbo tipas (komanda \protect\papertype)}
   \checkifdefined{@supervisor}%
     {Tituliniame puslapyje nenurodytas darbo vadovas (komanda \protect\supervisor)}
-  \checkifdefined{@reviewer}%
-    {Tituliniame puslapyje nenurodytas darbo recenzentas (komanda \protect\reviewer)}
   ~
   \begin{center}
       {\setstretch{1.3}\large \MakeUppercase{\@university} \\
@@ -228,7 +225,6 @@
         }{%
             \bigskip Author: &\; \@author \hfill \@signatureplace \\
             \bigskip Supervisor: &\; \@supervisor \hfill \@signatureplace \\
-            Reviewer: &\; \@reviewer \hfill \@signatureplace
         }%
         \end{tabular} \par}%
      \end{flushright}
