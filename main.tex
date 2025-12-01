@@ -195,4 +195,32 @@ Page: 122
 
 Page: 1, 11
 
+\section*{What was the command system for each architecture (ISA)? How many machine commands did each architecture have? What instruction formats did they support? Give 8 - 16 examples of instructions supported for each architecture. What instructions are similar? Which are different?}
+\subsection*{Motorola 68HC11}
+The type of command system (ISA) used by this architecture was the Motorola 68HC11 (an 8-bit CISC) instruction set, which supports a total of 149 machine commands. This architecture has a total of 6 supporting formats: INH (Inherit format), Immediate Format (IMM), Direct Format (DIR), Extended Format (EXT), Indexed Format (IND,X / IND,Y), Relative Format (REL). All of the instructions are divided among 4 classes: Accumulator and Memory Instructions, Stack and Index Register Instructions, Condition Code Register Instructions, Program Control Instructions. The most common instructions are: LDAA, LDX, LDY, ADDA, SUBA, INCA, DECA, ANDA, ORAA, ORAA, JSR, JMP, PSHA, PULA, BSET, BRSET.
+
+\subsection*{Intel i960}
+This architecture uses a 32-bit RISC architecture, which supports a total of 61 distinct machine commands. This architecture has a total of 4 different supporting formats: REG, MEM / MEMA / MEMB, CTRL, COBR. All of the instructions are divided among 7 different classes: Data movement, Arithmetic, Logical, Bit / bit-field / byte, Comparison and branch/control transfer, Fault, debug, and process control, and Atomic/multiprocessor support. The most common instructions are: ld, st, mov, add, sub, mul, div, and, or, xor, setbit, clrbit, notbit, cmp, call, ret.
+
+\subsection*{Similar instructions}
+Both of these architectures share similar instructions like: add, sub, cmp, ld, st, and, or, xor
+
+\subsection*{Different instructions}
+The Intel i960 has more expansive bitfield instructions like: extract, modify, it also supports large integer operations with instructions: movt (move 96-bit), movq (move 128-bit). The most important difference is that Intel i960 uses only registers for ALU operations, where Motorola 68HC11 ALU mainly works with accumulators A and B.
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+Pages: 215 - 227
+
+\textbf{For Intel i960:}
+
+\url{https://www.alldatasheet.com/datasheet-pdf/download/93622/INTEL/I960.html}
+
+\url{https://datasheets.chipdb.org/Intel/80960/manuals/48527606.PDF?}
+
+\url{https://stackoverflow.com/questions/52410521/is-zero-register-zr-in-aarch64-essentially-ground?}
+
 \end{document}
