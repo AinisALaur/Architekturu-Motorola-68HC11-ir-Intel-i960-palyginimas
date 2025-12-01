@@ -223,4 +223,76 @@ Pages: 215 - 227
 
 \url{https://stackoverflow.com/questions/52410521/is-zero-register-zr-in-aarch64-essentially-ground?}
 
+\section*{What type of addressing methods did each architecture support? Which are similar, which are different?}
+\subsection*{Motorola 68HC11}
+This architecture has a total of 6 different addressing methods:
+
+1) Immediate
+
+2) Direct
+
+3) Extended
+
+4) Indexed (with either of two 16-bit index registers and an 8-bit offset)
+
+5) Inherent
+
+6) Relative
+
+\subsection*{Intel i960}
+This architecture uses a total of 8 different addressing methods: 
+
+1) 12-bit offset (absolute)
+
+2) 32-bit offset (absolute)
+
+3) Register-indirect
+
+4) Register + 12-bit offset
+
+5) Register + 32-bit offset
+
+6) Register + (index register × scale factor)
+
+7) (Index register × scale factor) + 32-bit displacement
+
+8) Register + (index register × scale factor) + 32-bit displacement
+
+Where the The scale factor can be: 1, 2, 4, 8, or 16
+
+\subsection*{Similar addressing methods}
+1) Immediate - both architectures use the same core idea
+
+2) Direct / Absolute addressing - both architectures use the same concept, but the sizes differ
+
+3) Indexed addressing - in esence very simiar
+
+\subsection*{Diffent addressing methods}
+A list of unique addressing methods to intel i960:
+
+1) Scaled index addressing
+
+2) Scaled index + displacement
+
+3) (index × scale) + 32-bit displacement
+
+\bigskip
+A list of unique addressing methods to Motorola 68HC11:
+
+1) Inherent
+
+2) Relative (8-bit branch offset)
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+Page: 206
+
+\textbf{For Intel i960:}
+
+\url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
+
+Page: 20
 \end{document}
