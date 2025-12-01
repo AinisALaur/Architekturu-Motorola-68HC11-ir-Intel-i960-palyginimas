@@ -36,15 +36,23 @@
 \newpage
 \section*{Elementinė procesoriaus/kompiuterio bazė, fizinės įrangos savybės}
 \subsection*{Motorola 68HC11}
-Šio procesoriaus bazė yra padaryta iš CMOS MOSFET tranzistorių, integrinio grandyno (IC), kuris yra labai didelio integracijos masto (VLSI). Šis procesorius yra monokristalinis šiuolaikinis procesorius. Procesorius yra apie 20mm ilgio ir 20mm pločio, svoris nenurodytas. Vykdymo metu procesorius vartoja 5V, 2MHz dažniu, o stipris svyruoja tarp 5 - 15mA. Padidinus veikimo dažnį iki 3 - 4MHz, stipris svyruoja nuo 8 iki 20mA. Procesorius STOP režime (low-power) naudoja mažiau - apie 10$\mu$A, o miego režime (WAIT) stipris tiksliai nenurodytas, procesoriaus galia vykdymo metu yra tarp 50 - 100mW.
+Šios architektūros bazė yra padaryta iš CMOS MOSFET tranzistorių, integrinio grandyno (IC), kuris yra labai didelio integracijos masto (VLSI). Šis procesorius yra monokristalinis šiuolaikinis procesorius. Procesorius yra apie 20mm ilgio ir 20mm pločio, svoris nenurodytas. Vykdymo metu procesorius vartoja 5V, 2MHz dažniu, o stipris svyruoja tarp 5 - 15mA. Padidinus veikimo dažnį iki 3 - 4MHz, stipris svyruoja nuo 8 iki 20mA. Procesorius STOP režime (low-power) naudoja mažiau - apie 10$\mu$A, o miego režime (WAIT) stipris tiksliai nenurodytas, procesoriaus galia vykdymo metu yra tarp 50 - 100mW.
 
 \subsection*{Intel i960}
-Šio procesoriaus bazė yra sudaryta iš CMOS tranzistorių, integrinio grandyno, kuris yra labai didelio integracijos masto (VLSI). Šis procesorius yra monokristalinis šiuolaikinis procesorius. Procesorius yra apie 35mm ilgio ir 35mm pločio, sveriantis apie 50g.Vykdymo metu procesorius vartoja 3.3V, 25MHz dažniu, o stipris apie 150mA. Padidinus veikimo dažnį iki 33MHz, stipris padidėja iki 200mA. Procesorius STOP režime (angl. "low-power") naudoja tik 10mA - 20mA, o miego režime (angl. "WAIT") 37mA - 75mA, procesoriaus galia vykdymo metu yra apie 0.033W.
+Šios architektūros bazė yra sudaryta iš CMOS tranzistorių, integrinio grandyno, kuris yra labai didelio integracijos masto (VLSI). Šis procesorius yra monokristalinis šiuolaikinis procesorius. Procesorius yra apie 35mm ilgio ir 35mm pločio, sveriantis apie 50g.Vykdymo metu procesorius vartoja 3.3V, 25MHz dažniu, o stipris apie 150mA. Padidinus veikimo dažnį iki 33MHz, stipris padidėja iki 200mA. Procesorius STOP režime (angl. "low-power") naudoja tik 10mA - 20mA, o miego režime (angl. "WAIT") 37mA - 75mA, procesoriaus galia vykdymo metu yra apie 0.033W.
 
 \section*{Kokio tipo architektūrą turėjo abu kompiuteriai}
 \subsection*{Motorola 68HC11}
-Šis procesorius turėjo 8-bitų akumuliatorių, steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), programos skaitliuką, sąlyginius ir indeksų registrus, kurie palaiko 72 instrukcijas ir 19 išplėstinių operacijos kodų (angl. "opcodes"), visos operacijos vykdomos tarp registrų ar akumuliatoriuje, o ne atmintyje, tad šio procesoriaus architektūra yra akumuliatorinė/registrinė.
+Ši architektūra turėjo 8-bitų akumuliatorių, steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), programos skaitliuką, sąlyginius ir indeksų registrus, kurie palaiko 72 instrukcijas ir 19 išplėstinių operacijos kodų (angl. "opcodes"), visos operacijos vykdomos tarp registrų ar akumuliatoriuje, o ne atmintyje, tad šio procesoriaus architektūra yra akumuliatorinė/registrinė.
 
 \subsection*{Intel i960}
-Šis procesorius yra sudarytas iš 32 registrų (16 globalių ir 16 lokalių), turi steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), neturi akumuliatoriaus, naudoja įkelti, saugoti instrukcijas (angl. "load/store instructions"), visos operacijos vykdomos tarp registrų ar akumuliatoriuje, o ne atmintyje, tad šio procesoriaus architektūra yra registrinė, kuri naudoja įkelti, saugoti instrukcijas.
+Ši architektūra yra sudaryta iš 32 registrų (16 globalių ir 16 lokalių), turi steko rodyklę (angl. "stack pointer") (bet jo nenaudoja operacijoms), neturi akumuliatoriaus, naudoja įkelti, saugoti instrukcijas (angl. "load/store instructions"), visos operacijos vykdomos tarp registrų, o ne atmintyje, tad šio procesoriaus architektūra yra registrinė, kuri naudoja įkelti, saugoti instrukcijas.
+
+\section*{Ar tai buvo beadresinės (stekinės), vieno adreso, dviejų adresų, trijų adresų ar keturios adresų mašinos?}
+\subsection*{Motorola 68HC11}
+Ši architektūra yra 1 - 2 adresų mašina, kurios adresų kiekis priklauso nuo operacijos, o daugiau kaip 2 adresų nenaudoja. Architektūra turi steką, bet jis nėra naudojamas operacijoms ("The M68HC11 CPU automatically supports a program stack… used for subroutines, interrupts, and temporary storage." citata iš "Motorola 68HC11 reference manual").
+
+\subsection*{Intel i960}
+Ši architektūra naudoja 2 - 3 adresus, priklausomai nuo operacijos: loginės operacijos naudoja 3 adresus, o operacijos kaip įkelti, saugoti (angl. "load, store") naudoja tik 2 adresus, vieno adreso operacijų architektūra neturi. Architektūra turi steką, bet jis nėra naudojamas operacijoms, citata iš "I960 INTEL Datasheet": "it does not consume/produce operands on a stack."
+
 \end{document}
