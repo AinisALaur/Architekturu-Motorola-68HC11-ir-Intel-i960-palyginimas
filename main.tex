@@ -135,7 +135,7 @@ Page: 489
 
 Pages: 12, 13, 63
 
-\section*{"What was the data width (machine word) of each architecture?}
+\section*{What was the data width (machine word) of each architecture?}
 \subsection*{Motorola 68HC11}
 The machine word for this architecture is 8 bits long.
 
@@ -152,5 +152,27 @@ The machine word for this architecture is 32 bits long.
 \url{https://www.alldatasheet.com/datasheet-pdf/download/93622/INTEL/I960.html}
 
 Page: 15
+
+\section*{Memory layout of each system. Address width. The maximum possible amount of memory in each system. Typical amount of memory with which the system was used}
+
+\subsection*{Motorola 68HC11}
+This architure's memory is flat and linearly stored in a 64KB address space - the memory is not segmented, nor paged, nor stored in memory banks. The effective address width is 16 bits and the maximum amount of memory stored in the system was 64KB. The typical memory amount for this system is about 256–512 bytes of RAM and 8–12 KB of program memory.
+
+\subsection*{Intel i960}
+This architecture's memory layout is not segmented, nor does it use pages, but it does use memory banks(regions). The effective adress width was 32 bits and the maximum amount of memory stored in the system was up to 256 Mbytes of 32- or 36-Bit DRAM. The typical memory amount for this system is about 32MB.
+
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+Page: 122
+
+\textbf{For Intel i960:}
+
+\url{https://www.alldatasheet.com/datasheet-pdf/download/93622/INTEL/I960.html}
+
+Page: 1, 11
 
 \end{document}
