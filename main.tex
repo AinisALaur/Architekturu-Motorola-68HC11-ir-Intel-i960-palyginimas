@@ -442,4 +442,27 @@ Pages: 173 - 174
 
 Page: 9
 
+\section*{What data types did each architecture support? Were fixed, floating-point numbers supported, their arithmetic? Were integers represented as sign-size or as reverse code? Were there any other "exotic" data types?}
+
+\subsection*{Motorola 68HC11}
+The architecture natively supported four data types: bit data, 8-bit and 16-bit signed and unsigned integers, 3 16-bit unsigned fractions, and 16-bit addresses. Floating-point numbers were not supported, but fixed-point numbers were supported and used the mentioned 16-bit unsigned fraction data type for arithmetic. For integer types, the 68HC11 used two's complement. No "exotic" data types were listed in the data manual.
+
+\subsection*{Intel i960}
+This architecture supported a total of 7 native data types: signed and unsigned integers (of width: 8, 16, 32, 64 bits), bits, bit fields, and fixed, floating-point numbers (32-bit, 64-bit, 80-bit extended precision, IEEE-754 compliant). Integer types were represented using two's complement. This architecture has a few "exotic" data types like triple word (96 bits) and quad word (128 bits).
+
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+\url{https://www.nxp.com/docs/en/data-sheet/M68HC11E.pdf}
+
+\textbf{For Intel i960}
+
+\url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
+
+
 \end{document}
