@@ -510,7 +510,7 @@ This system used cache memory for instructions and data. The instruction cache s
 This processor is used for educational purposes to teach students the workings of a processor. Moreover, this CPU is used in automotive applications, barcode readers, hotel card key writers, and various other embedded systems. This microcontroller found itself being used a lot in the automotive industry especially for engine control units for managing air/fuel flow sensors, spark timing, and odometer functions requiring durable non-volatile memory.
 
 \subsection*{intel i960}
-The processor was used for graphics applications, it also appeared in consumer and commercial devices, such as Sega's Daytona USA arcade games, early GPS receivers, and video poker machines. Additionally, the Intel i960 processor family was deployment in several specialized military applications, it was engineered for high-reliability embedded systems in defense environments. These processors supported real-time operations in avionics for aircraft control, such as in the F-22 Raptor, missile guidance systems requiring precise computation under stringent timing constraints, and radar signal processing for target detection and tracking.
+The processor was used for high-end embedded systems, networking, it also appeared in consumer and commercial devices, such as Sega's Daytona USA arcade games, early GPS receivers, and video poker machines. Additionally, the Intel i960 processor family was deployment in several specialized military applications, it was engineered for high-reliability embedded systems in defense environments. These processors supported real-time operations in avionics for aircraft control, such as in the F-22 Raptor, missile guidance systems requiring precise computation under stringent timing constraints, and radar signal processing for target detection and tracking.
 
 \subsection*{Sources}
 \textbf{For Motorola 68HC11:}
@@ -521,5 +521,27 @@ The processor was used for graphics applications, it also appeared in consumer a
 \textbf{For Intel i960}
 
 \url{https://grokipedia.com/page/Intel_i960#other-notable-uses}
+
+\section*{How much software was written for each architecture, is it (still) available? What compilers and programming tools (debuggers, profilers, assemblers) were available? What software libraries were available?}
+
+\subsection*{Motorola 68CH11}
+No sources provide a numerical estimate of how much software was written for the Motorola 68HC11, but taking into account all of the use cases - its in the hundreds of millions. For this architecture there were several tools available: the GNU Development Chain — including a C/C++ compiler (GCC), assembler/linker (Binutils), debugger (GDB), and C runtime libraries (NEWLIB: libc, libm, etc.). Some higher-level / alternative-language software exists - a library uploaded on github. The GNU tool chain is still available today.
+
+\subsection*{Intel i960}
+Again, there are no concrete numbers depicting how much software was written using the Intel i960 architecture, but comparing it to the Motorola 68CH11 it is clear that its applicability was greater, also taking into account its popularity I assume the number is in the billions. This architecture had a richer software system: Developers used standard C runtime libraries (libc, libm), large commercial toolchains for compiling, debbuging, assembling and linking (Intel iC960, GNU i960 tools, Green Hills, Diab), and extensive RTOS libraries. Some software still remains and is accesible like the open-source GNU/960 toolchain, but Intels commercial tools like the iC960 is no longer available from Intel.
+
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.gnu.org/software/m68hc11/?}
+\url{https://github.com/bfox9900/MaxForth-68hc11?}
+\url{https://grokipedia.com/page/Motorola_68HC11}
+
+\textbf{For Intel i960}
+
+\url{https://grokipedia.com/page/Intel_i960}
+\url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
+
 
 \end{document}
