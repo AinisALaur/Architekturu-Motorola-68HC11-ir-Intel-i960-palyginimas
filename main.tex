@@ -469,7 +469,7 @@ This architecture supported a total of 7 native data types: signed and unsigned 
 \subsection*{Motorola 68HC11}
 The system's clock is called the E-clock, which has a frequency of \frac{1}{4} of the external crystal frequency, the operating frequency could go up to 3 MHz. Some examples of required cycle count per instruction: LDAA (3 cycles), JSR (6 cycles), LDX (4 cycles), JMP (3 cycles). The maximum number of cycles is about 14, used by interrupt entries. The minimum number of cycles is only about 2. On average, most instructions use about 2 - 4 cycles, and longer non-interrupt instructions use about 7 cycles. The average speed of the microcontroller was about 0.2 MIPS.
 
-\subsection*{intel i960}
+\subsection*{Intel i960}
 This system uses a 32MHz internal core frequency, and the data sheet does not provide information about an E-clock as the Motorola 68CH11 architectures did. According to the instruction manual, it is given that most instructions are executed in a single clock cycle, thus, the minimum is clearly 1 cycle. Per average an instruction is finished in just 0.5 cycles, meaning the system can execute two instructions per cycle. The maximum number of cycles is not listed. According to the table, which depicts the system's performance, it is given that the average performance was about 66 MIPS.
 
 \subsection*{Comparison}
@@ -486,5 +486,23 @@ The Intel i960 system is clearly superior to the Motorola 68CH11 performance-wis
 
 \url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
 
+\section*{Did the architectures use cache memory? If so, what size?}
+\subsection*{Motorola 68CH11}
+This system did not use cache memory.
+
+
+\subsection*{intel i960}
+This system used cache memory for instructions and data. The instruction cache size completely depended on the model of the CPU, but generally it ranged between 512 bytes to 4KB, meanwhile the data cache ranged from 0 to 2KB.
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+\textbf{For Intel i960}
+
+\url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
+
+\url{https://www.alldatasheet.com/datasheet-pdf/download/93622/INTEL/I960.html}
 
 \end{document}
