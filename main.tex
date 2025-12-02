@@ -456,9 +456,31 @@ This architecture supported a total of 7 native data types: signed and unsigned 
 
 \url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
 
-\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+\url{https://www.nxp.com/docs/en/data-sheet/M68HC11E.pdf}
 
 \url{https://www.nxp.com/docs/en/data-sheet/M68HC11E.pdf}
+
+\textbf{For Intel i960}
+
+\url{http://www.bitsavers.org/components/intel/i960/i960_Processors_and_Related_Products_Jan95.pdf}
+
+\section*{What was the performance of each system? What were the clock generator frequencies, and what were the average/minimum/maximum number of cycles required to execute each instruction, and what was the average system performance? Which system was more efficient? What was the price–performance ratio?}
+
+\subsection*{Motorola 68HC11}
+The system's clock is called the E-clock, which has a frequency of \frac{1}{4} of the external crystal frequency, the operating frequency could go up to 3 MHz. Some examples of required cycle count per instruction: LDAA (3 cycles), JSR (6 cycles), LDX (4 cycles), JMP (3 cycles). The maximum number of cycles is about 14, used by interrupt entries. The minimum number of cycles is only about 2. On average, most instructions use about 2 - 4 cycles, and longer non-interrupt instructions use about 7 cycles. The average speed of the microcontroller was about 0.2 MIPS.
+
+\subsection*{intel i960}
+This system uses a 32MHz internal core frequency, and the data sheet does not provide information about an E-clock as the Motorola 68CH11 architectures did. According to the instruction manual, it is given that most instructions are executed in a single clock cycle, thus, the minimum is clearly 1 cycle. Per average an instruction is finished in just 0.5 cycles, meaning the system can execute two instructions per cycle. The maximum number of cycles is not listed. According to the table, which depicts the system's performance, it is given that the average performance was about 66 MIPS.
+
+\subsection*{Comparison}
+The Intel i960 system is clearly superior to the Motorola 68CH11 performance-wise. The Motorola 68CH11 at its release cost about 250 USD, and the Intel i960 was 174 USD (the base KA model, the better KB model was 333 USD), so clearly the Intel i960 was the better choice as it delivered more for a lower price.
+
+\subsection*{Sources}
+\textbf{For Motorola 68HC11:}
+
+\url{https://www.nxp.com/docs/en/reference-manual/M68HC11RM.pdf}
+
+\url{https://carleton.ca/scs/vintage-computing/item/vin113/}
 
 \textbf{For Intel i960}
 
