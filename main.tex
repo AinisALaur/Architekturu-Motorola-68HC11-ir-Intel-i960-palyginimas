@@ -39,7 +39,7 @@ The base is made from CMOS MOSFET transistors, an integrated circuit (IC) with a
 
 \noindent\textbf{Intel i960}
 
-The base is composed of CMOS transistors and an integrated circuit with a very large scale of integration (VLSI). This processor is a monocrystalline modern processor. The processor is about 35mm in length and 35mm in width, weighing about 50g. During operation, the processor uses 3.3V at a 33MHz frequency, with a current of about 150 - 200 mA. The processor’s power consumption during operation is about 0.033 W. \cite{intelProcessors} \cite{i960assemblerGuide}
+The base is composed of CMOS transistors and an integrated circuit with a very large scale of integration (VLSI). This processor is a monocrystalline modern processor. The processor is about 35mm in length and 35mm in width, weighing about 50g. During operation, the processor uses 3.3V at a 33MHz frequency, with a current of about 150 - 200 mA. The processor’s power consumption during operation is about 0.5W. \cite{IntelProcessors} \cite{i960assemblerGuide}
 
 \subsection*{What type of architecture did the computer use?}
 \noindent\textbf{Motorola 68HC11}
@@ -49,17 +49,17 @@ It had an 8-bit accumulator, a stack pointer (which was not used for operations)
 
 \noindent\textbf{Intel i960}
 
-This CPU was made of registers and a stack pointer, which is not used for operations. It does not have an accumulator and uses load/store instructions. All operations are performed between registers rather than in memory, so this processor’s architecture is register-based and uses load/store instructions. \cite{intelGrok}
+This CPU was made of registers and a stack pointer, which is not used for operations. It does not have an accumulator and uses load/store instructions. All operations are performed between registers rather than in memory, so this processor’s architecture is register-based and uses load/store instructions. \cite{IntelGrok}
 
 \subsection*{Was it a zero-address (stack-based), one-address, two-address, three-address, or four-address machine?}
 
 \noindent\textbf{Motorola 68HC11}
 
-This architecture is a 1–2-address machine, where the number of addresses depends on the operation and never exceeds two. The architecture has a stack, but it is not used for operations—it is only used for subroutines, interrupts, and temporary storage.\cite{motorolaMicRefManual}
+This architecture is a 1–2-address machine, where the number of addresses depends on the operation and it never exceeds two. The architecture has a stack, but it is not used for operations—it is only used for subroutines, interrupts, and temporary storage.\cite{motorolaMicRefManual}
 
 \noindent\textbf{Intel i960}
 
-This architecture uses mostly two addresses. There are no one-address or three-address operations within this architecture. The architecture has a stack, but it is not used for operations.\cite{intelDatasheet}
+This architecture uses mostly two addresses. There are no one-address or three-address operations within this architecture. The architecture has a stack, but it is not used for operations.\cite{IntelDatasheet}
 
 \subsection*{Did registers exist in both architectures? What kind? How many? What were the data widths? What was the specific purpose of each register?}
 
@@ -69,7 +69,7 @@ The architecture has eight registers (A, B, D, X, Y, SP, PC, CCR), and all regis
 
 \noindent\textbf{Intel i960}
 
-The architecture consists of 32 registers (16 global and 16 local general-purpose), and all registers are 32 bits wide. The special-purpose registers are PC/IP (Instruction Pointer), AC (Arithmetic Condition Codes), and MMRs (used to control interrupts, counters, and program errors). \cite{intelDatasheet}
+The architecture consists of 32 registers (16 global and 16 local general-purpose), and all registers are 32 bits wide. The special-purpose registers are PC/IP (Instruction Pointer), AC (Arithmetic Condition Codes), and MMRs (used to control interrupts, counters, and program errors). \cite{IntelDatasheet}
 
 \subsection*{Were flag bits used in these architectures? Which flags were used?}
 
@@ -79,7 +79,7 @@ Yes, this architecture uses flag bits: the CCR register contains five flag bits.
 
 \noindent\textbf{Intel i960}
 
-Yes, this architecture also uses flag bits. The flag bits are: C (Carry/Borrow), V (two’s complement overflow indicator), Z (zero indicator), N (negative indicator), and T (trace-enable, used for program debugging). \cite{intelDatasheet}
+Yes, this architecture also uses flag bits. The flag bits are: C (Carry/Borrow), V (two’s complement overflow indicator), Z (zero indicator), N (negative indicator), and T (trace-enable, used for program debugging). \cite{IntelDatasheet}
 
 \subsection*{What was the data width (machine word) of each architecture?}
 \noindent\textbf{Motorola 68HC11}
@@ -88,7 +88,7 @@ The machine word for this architecture is 8 bits long.\cite{motorolaGrok}
 
 \noindent\textbf{Intel i960}
 
-The machine word for this architecture is 32 bits long.\cite{intelDatasheet}
+The machine word for this architecture is 32 bits long.\cite{IntelDatasheet}
 
 \subsection*{Memory layout of each system. Address width. The maximum possible amount of memory in each system. Typical amount of memory used by the system}
 
@@ -99,22 +99,26 @@ The memory is flat and linearly stored in a 64 KB address space — the memory i
 
 \noindent\textbf{Intel i960}
 
-The memory’s layout is not segmented, nor does it use pages, but it does use memory banks (regions). The effective address width was 32 bits, and the maximum amount of memory stored in the system was up to 256 Mbytes of 32- or 36-bit DRAM. The typical memory amount for this system is about 32 MB. \cite{intelDatasheet}
+The memory’s layout is not segmented, nor does it use pages, but it does use memory banks (regions). The effective address width was 32 bits, and the maximum amount of memory stored in the system was up to 256 Mbytes of 32- or 36-bit DRAM. The typical memory amount for this system is about 32 MB. \cite{IntelDatasheet}
 
 \subsection*{Was virtual memory supported for this architecture? How?}
+\noindent\textbf{Motorola 68HC11}
 
-Both architectures do not support virtual memory as they do not use nor paging, nor segmentation, resulting in no virtual memory adaptations.
+It did not support virtual memory as it lacked paging and segmentation.
+
+\noindent\textbf{Intel i960}
+
+Most Intel i960 family variants lacked virtual memory, but certain models did support it like the i960MX and i960MM
 
 \subsection*{What was the command system for each architecture (ISA)? How many machine commands did each architecture have? What were supported instruction formats? Give 8 – 16 examples of supported instructions. Show similar and different instructions}
 
 \noindent\textbf{Motorola 68HC11}
-
 The type of command system (ISA) used by this architecture was an 8-bit CISC instruction set, which supports a total of 149 machine commands. This architecture has a total of six supporting formats: INH (inherit format), immediate format (IMM), direct format (DIR), extended format (EXT), indexed format (IND, X / IND, Y), and relative format (REL). All of the instructions are divided among four classes: accumulator and memory instructions, stack and index register instructions, condition code register instructions, and program control instructions. The most common instructions are: LDAA, LDX, LDY, ADDA, SUBA, INCA, DECA, ANDA, ORAA, JSR, JMP, PSHA, PULA, BSET, BRSET.
 \cite{motorolaMicRefManual}
 
 \noindent\textbf{Intel i960}
 
-This architecture uses a 32-bit RISC architecture, which supports a total of 61 distinct machine commands. This architecture has a total of four different supporting formats: REG, MEM / MEMA / MEMB, CTRL, and COBR. All of the instructions are divided among seven different classes: data movement, arithmetic, logical, bit / bit-field / byte, comparison and branch / control transfer, fault / debug / process control, and atomic / multiprocessor support. The most common instructions are: ld, st, mov, add, sub, mul, div, and, or, xor, setbit, clrbit, notbit, cmp, call, ret. \cite{intelDatasheet} \cite{i960assemblerGuide}
+This architecture uses a 32-bit RISC architecture, which supports a total of 61 distinct machine commands. This architecture has a total of four different supporting formats: REG, MEM / MEMA / MEMB, CTRL, and COBR. All of the instructions are divided among seven different classes: data movement, arithmetic, logical, bit / bit-field / byte, comparison and branch / control transfer, fault / debug / process control, and atomic / multiprocessor support. The most common instructions are: ld, st, mov, add, sub, mul, div, and, or, xor, setbit, clrbit, notbit, cmp, call, ret. \cite{IntelDatasheet} \cite{i960assemblerGuide}
 
 \noindent\textbf{Similar instructions}
 
@@ -131,7 +135,7 @@ This architecture has a total of six different addressing methods: immediate, di
 
 \noindent\textbf{Intel i960}
 
-This architecture uses a total of eight different addressing methods: 12-bit offset (absolute), 32-bit offset (absolute), register-indirect, register + 12-bit offset, register + 32-bit offset, register + (index register × scale factor), (index register × scale factor) + 32-bit displacement, register + (index register × scale factor) + 32-bit displacement. The scale factor can be 1, 2, 4, 8, or 16. \cite{intelProcessors}
+This architecture uses a total of eight different addressing methods: 12-bit offset (absolute), 32-bit offset (absolute), register-indirect, register + 12-bit offset, register + 32-bit offset, register + (index register × scale factor), (index register × scale factor) + 32-bit displacement, register + (index register × scale factor) + 32-bit displacement. The scale factor can be 1, 2, 4, 8, or 16. \cite{IntelProcessors}
 
 \noindent\textbf{Similar addressing methods}
 
@@ -154,13 +158,13 @@ Timer System (captures input, displays output, used for the pulse accumulator), 
 
 Memory-mapped I/O (all peripherals are accessed through memory addresses), Local bus / L-bus (32-bit multiplexed bus used to connect memory and I/O devices), PCI bus I/O (operates as a PCI device and supports PCI-to-PCI bridging), Address Translation Unit / ATU (maps PCI address space to local memory), DMA Controller (performs high-speed peripheral-to-memory transfers with chaining and alignment), Interrupt Controller / ICU (handles up to 240 external interrupt sources)
 
-\cite{intelProcessors} \cite{intelDatasheet}
+\cite{IntelProcessors} \cite{IntelDatasheet}
 
 \subsection*{Were interrupts supported? How were interrupt mechanisms similar, how were they different for both architectures?}
 
 \noindent\textbf{Motorola 68HC11}
 
-The given Intel architecture supported interrupts. These are the main categories with a short description: Non-maskable interrupts (highest-priority events), External maskable interrupt (hardware interrupt triggered by an external signal), Timer system interrupts (generated by the timer module for measuring pulses), Pulse accumulator interrupts (triggered by the 8-bit pulse counter subsystem), Serial communications interrupts (from SCI or SPI modules), A/D converter interrupts (triggered when an analog-to-digital conversion finishes), Software interrupt (manually triggered by the SWI instruction)
+The given architecture supported interrupts. These are the main categories with a short description: Non-maskable interrupts (highest-priority events), External maskable interrupt (hardware interrupt triggered by an external signal), Timer system interrupts (generated by the timer module for measuring pulses), Pulse accumulator interrupts (triggered by the 8-bit pulse counter subsystem), Serial communications interrupts (from SCI or SPI modules), A/D converter interrupts (triggered when an analog-to-digital conversion finishes), Software interrupt (manually triggered by the SWI instruction)
 
 \cite{motorolaMicRefManual}
 
@@ -168,7 +172,7 @@ The given Intel architecture supported interrupts. These are the main categories
 
 The given Intel architecture supported several interrupt types. The main categories are: Hardware interrupts (originate from external pins), Dedicated-mode interrupts (use fixed interrupt vectors per pin), Expanded-mode interrupts (generated by external hardware devices), Mixed-mode interrupts (combine dedicated and expanded interrupt routing), DMA interrupts (generated by the four DMA channels), Non-maskable interrupts / NMI (highest-priority interrupt source), Software interrupts (invoked through system control instructions), Message-based interrupts / IAC (generated by bus-level interrupt messages), Faults / exceptions (arithmetic errors, trace events, and other exception conditions)
 
-\cite{intelProcessors} \cite{intelDatasheet}
+\cite{IntelProcessors} \cite{IntelDatasheet}
 
 \noindent\textbf{Similarities in interrupt mechanisms}
 
@@ -186,19 +190,17 @@ The architecture natively supported four data types: bit data, 8-bit and 16-bit 
 
 \noindent\textbf{Intel i960}
 
-This architecture supported a total of seven native data types: signed and unsigned integers (8, 16, 32, and 64 bits), bits, bit fields, and fixed and floating-point numbers (32-bit, 64-bit, and 80-bit extended precision, IEEE-754 compliant). Integer types were represented using two’s complement. This architecture also included a few “exotic” data types, such as triple word (96 bits) and quad word (128 bits). \cite{intelProcessors}
+This architecture supported a total of seven native data types: signed and unsigned integers (8, 16, 32, and 64 bits), bits, bit fields, and fixed and floating-point numbers (32-bit, 64-bit, and 80-bit extended precision, IEEE-754 compliant). Integer types were represented using two’s complement. This architecture also included a few “exotic” data types, such as triple word (96 bits) and quad word (128 bits). \cite{IntelProcessors}
 
 \subsection*{What was the performance of each system? What were the clock generator frequencies? Average / minimum / maximum numbers of cycles required to execute each instruction. Average system performance? Which system was more efficient? What was the price – performance ratio?}
 
 \noindent\textbf{Motorola 68HC11}
 
-The system’s operating frequency could go up to 3 MHz. Cycles required per instruction varied: LDAA (3 cycles), JSR (6 cycles), LDX (4 cycles), JMP (3 cycles). The maximum number of cycles is about 14, used by interrupt entries. The minimum number of cycles is only about 2. On average, most instructions use about 2 – 4 cycles. The average speed of the microcontroller was about 0.2 MIPS.
-
-\cite{motorolaMicRefManual} \cite{motorolaEvalModule}
+The system’s operating frequency could go up to 3 MHz. Cycles required per instruction varied: LDAA (3 cycles), JSR (6 cycles), LDX (4 cycles), JMP (3 cycles). The maximum number of cycles is about 14, used by interrupt entries. The minimum number of cycles is only about 2. On average, most instructions use about 2 – 4 cycles. The average speed of the microcontroller was about 0.2 MIPS.\cite{motorolaMicRefManual}\cite{motorolaEvalModule}
 \newpage
 \noindent\textbf{Intel i960}
 
-This system uses a 32 MHz internal core frequency. According to the instruction manual, most instructions are executed in a single clock cycle; thus, the minimum is clearly 1 cycle. On average, an instruction is finished in just 0.5 cycles, meaning the system can execute two instructions per cycle. The maximum number of cycles is not listed. According to the table that depicts the system’s performance, the average performance was about 66 MIPS.\cite{intelProcessors}
+This system uses a 32 MHz internal core frequency. According to the instruction manual, most instructions are executed in a single clock cycle; thus, the minimum is clearly 1 cycle. On average, instructions complete in a single cycle due to pipelining. The maximum number of cycles is not listed. According to the table that depicts the system’s performance, the average performance was about 66 MIPS.\cite{IntelProcessors}
 
 \noindent\textbf{Comparison}
 
@@ -209,18 +211,18 @@ The Intel i960 system is clearly superior to the Motorola 68HC11 performance-wis
 
 This system did not use cache memory.\cite{motorolaMicRefManual}
 
-\noindent\textbf{intel i960}
+\noindent\textbf{Intel i960}
 
-This system used cache memory for instructions and data. The instruction cache size depended entirely on the model of the CPU, but generally ranged from 512 bytes to 4 KB, while the data cache ranged from 0 to 2 KB.\cite{intelProcessors}
+This system used cache memory for instructions and data. The instruction cache size depended entirely on the model of the CPU, but generally ranged from 512 bytes to 4 KB, while the data cache ranged from 0 to 2 KB.\cite{IntelProcessors}
 
 \subsection*{What were the typical use cases for each architecture? Write a brief paragraph of an example use case}
 \noindent\textbf{Motorola 68HC11}
 
 This processor is used for educational purposes to teach processor operation. It also appears in automotive systems, barcode readers, hotel card key writers, and various embedded devices. In the automotive industry, it was widely used in engine control units for managing air / fuel sensors, spark timing, and odometer functions. \cite{motorola68HC11x} \cite{motorolaGrok}
 
-\noindent\textbf{intel i960}
+\noindent\textbf{Intel i960}
 
-The processor was used in high-end embedded systems and networking equipment, as well as in consumer and commercial products such as Sega’s Daytona USA arcade machines, early GPS receivers, and video poker machines. The Intel i960 family was also deployed in specialized military - it supported avionics systems in aircraft like the F-22 Raptor, missile guidance.\cite{intelGrok}
+The processor was used in high-end embedded systems and networking equipment, as well as in consumer and commercial products such as Sega’s Daytona USA arcade machines, early GPS receivers, and video poker machines. The Intel i960 family was also deployed in specialized military - supported avionics systems in aircraft like the F-22 Raptor, missile guidance.\cite{IntelGrok}
 
 \subsection*{How much software was written for each architecture, is it still available? What compilers and programming tools, libraries were available?}
 
@@ -230,7 +232,7 @@ No sources give a numerical estimate of how much software was written for the Mo
 
 \noindent\textbf{Intel i960}
 
-No concrete numbers exist for how much software was written for the Intel i960. However, given its broader applicability and higher popularity in commercial, military, and embedded systems, the total is likely in the billions. The architecture had a richer software ecosystem, including standard C runtime libraries (libc, libm), major commercial toolchains for compiling, debugging, assembling, and linking (Intel iC960, GNU i960 tools, Green Hills, Diab), and extensive RTOS libraries. Some software remains available today, such as the open-source GNU/960 toolchain, but Intel’s commercial tools — like the iC960 — are no longer distributed.\cite{intelGrok} \cite{intelProcessors}
+No concrete numbers exist for how much software was written for the Intel i960. However, given its broader applicability and higher popularity in commercial, military, and embedded systems, the total is likely in the billions. The architecture had a richer software ecosystem, including standard C runtime libraries (libc, libm), major commercial toolchains for compiling, debugging, assembling, and linking (Intel iC960, GNU i960 tools, Green Hills, Diab), and extensive RTOS libraries. Some software remains available today, such as the open-source GNU/960 toolchain, but Intel’s commercial tools — like the iC960 — are no longer distributed.\cite{IntelGrok} \cite{IntelProcessors}
 
 \subsection*{Emulators}
 \noindent\textbf{Motorola 68HC11}
